@@ -12,6 +12,14 @@ $radius: 3px;
   border-radius: $radius;
   margin: 5px;
   border: 1px solid gainsboro;
+  .btn-forward, .btn-back{
+    cursor: pointer;
+    text-align: center;
+    border-radius: 3px;
+    &:hover{
+      background: red;
+    }
+  }
   .calendar-label-btn{
     width: 100px;
     text-align: center;
