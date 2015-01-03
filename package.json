@@ -1,0 +1,16 @@
+{
+    "name": "calendar",
+    "version": "0.0.0",
+    "description": "calendar",
+    "dependencies": {
+        "grunt-angular-templates": "^0.5.7",
+        "grunt-contrib-sass": "^0.8.1",
+        "grunt-contrib-uglify": "",
+        "grunt-contrib-watch": ""
+    },
+    "devDependencies": {
+        "grunt-protractor-runner": "^1.1.4",
+        "grunt-text-replace": "^0.3.12",
+        "grunt-string-replace": "~1.0.0"
+    }
+}
