@@ -10,7 +10,7 @@
                     &lt;
                 </div>
                 <div class="col-8 name-month">
-                    {{arrMonth.value | date:'MMMM'}}
+                    {{arrMonth.value | date:'MMMM yyyy'}}
                 </div>
                 <div class="col-2 btn-forward" ng-click="stepForward()">
                     &gt;
@@ -19,7 +19,7 @@
             </div>
             <div class="numeric">
                 <div class="row" ng-repeat="week in arrMonth track by $index">
-                    <div class="col-day  text-right {{day.class}}" ng-repeat="day in arrMonth[$index] track by $index">
+                    <div class="col-day  text-right {{day.class}}" ng-repeat="day in arrMonth[$index] track by $index" ng-click="selectEvent(day.value)">
                      <span ng-switch="$index">
                         <span ng-switch-when="6" class="red">
                            {{day.value | date:'d'}}

@@ -17,11 +17,11 @@ $radius: 3px;
     text-align: center;
     border-radius: 3px;
     &:hover{
-      background: red;
+      background: rgb(255, 228, 144);
     }
   }
   .calendar-label-btn{
-    width: 100px;
+    width: 160px;
     text-align: center;
    @include background-gradient();
   }
@@ -102,11 +102,15 @@ $radius: 3px;
   }
   .numeric{
     .col-day{
+      border: 1px solid transparent;
       &:hover{
         background: ghostwhite;
       }
     }
     .current{
+      border: 1px solid red;
+    }
+    .select{
       background: rgb(255, 228, 144);
       &:hover{
         background: #ffcf78;

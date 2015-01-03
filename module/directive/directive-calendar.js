@@ -4,13 +4,15 @@ calendarModule.directive('calendar', ['$compile', '$templateCache', 'constantCal
         var selectDate = new Date(_selectDate.getFullYear(), _selectDate.getMonth(), _selectDate.getDate()).getTime();
 
         function checkCurrentDate(d) {
+            var _class = ''
             if (dateNowValue == d.getTime()) {
-                return true
+                _class+='current'
             }
-            return false
+            if(selectDate==d.getTime()){
+                _class+=' select'
+            }
+            return _class
         }
-
-
 
         var array = [];
         for (var i = 0; i < 50; i++) {
@@ -20,7 +22,7 @@ calendarModule.directive('calendar', ['$compile', '$templateCache', 'constantCal
                     date: d,
                     value: d.getTime(),
                     dayWeek: d.getDay(),
-                    class: checkCurrentDate(d) ? "current" : ''
+                    class: checkCurrentDate(d)
                 })
             }
         }
@@ -62,8 +64,8 @@ calendarModule.directive('calendar', ['$compile', '$templateCache', 'constantCal
             var dateCalendar = $scope.date
             var viewMonth =  $scope.date.getMonth();
 
-            $scope.arrMonth = formatMonth(dateCalendar, $scope.date);
-            $scope.arrMonth.value = dateCalendar.getTime();
+            $scope.arrMonth = formatMonth( $scope.date, $scope.date);
+            $scope.arrMonth.value =  $scope.date.getTime();
 
             $scope.stepBack = function(){
                 viewMonth--
@@ -72,6 +74,11 @@ calendarModule.directive('calendar', ['$compile', '$templateCache', 'constantCal
             $scope.stepForward = function(){
                 viewMonth++
                 regen(viewMonth)
+            }
+            $scope.selectEvent = function(val){
+                $scope.date = new Date(val)
+                $scope.arrMonth = formatMonth( $scope.date, $scope.date);
+                $scope.arrMonth.value =  $scope.date.getTime();
             }
 
             function regen(month){
