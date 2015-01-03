@@ -5,16 +5,20 @@ module.exports = function (grunt) {
         'css/calendar.scss'
     ]
     var jsDefaultFiles = [
-        'module/**/**.js',
-        'module/partials/**/**.js',
-        'js/_init.js',
-        'src/**/*.js',
-        'partials/**/**.js'
+        'module/**/**.js'
+       // 'module/partials/**/**.js',
+        //'js/_init.js',
+       // 'src/**/*.js'
+       // 'partials/**/**.js'
+    ]
+
+    var jsCalendarModule = [
+        'module/**/**.js'
     ]
 
     var htmlFiles = [
-        'module/partials/**/**.html',
-        'partials/**/**.html'
+        'module/partials/**/**.html'
+        //'partials/**/**.html'
     ]
 
     grunt.initConfig({
@@ -33,7 +37,8 @@ module.exports = function (grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'build/default.css': 'css/default.scss'
+                    'build/default.css': 'css/default.scss',
+                    'build/calendar.css': 'css/calendar.scss'
                 }
             }
         },
@@ -44,7 +49,7 @@ module.exports = function (grunt) {
                     mangle: false
                 },
                 files: {
-                    'build/default.js': jsDefaultFiles
+                    'build/calendar.js': jsCalendarModule
                 }
             },
             prod: {
@@ -53,7 +58,7 @@ module.exports = function (grunt) {
                     mangle: true
                 },
                 files: {
-                    'build/default.js': jsDefaultFiles
+                    'build/calendar.js': jsCalendarModule
                 }
             }
         },
@@ -81,8 +86,8 @@ module.exports = function (grunt) {
                 options: {nospawn: true}
             },
             jsDefault: {
-                files: jsDefaultFiles,
-                tasks: ['ngtemplates','uglify:dev'],
+                files: jsCalendarModule,
+                tasks: ['ngtemplates:calendarModule','uglify:dev'],
                 options: {nospawn: true}
             },
             htmlFiles: {
@@ -104,7 +109,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default',
         [
             'sass:dev',
-            'ngtemplates',
+            'ngtemplates:calendarModule',
             'uglify:dev',
             'watch'
         ]
@@ -112,7 +117,7 @@ module.exports = function (grunt) {
     grunt.registerTask('prod',
         [
             'sass:prod',
-            'ngtemplates',
+            'ngtemplates:calendarModule',
             'uglify:prod'
         ]
     );
