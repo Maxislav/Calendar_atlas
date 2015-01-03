@@ -1,4 +1,11 @@
 <div ng-show="show" class="calendar-view">
+
+    <div class="label-close">
+        &nbsp;
+        <div class="button-close" ng-click="click()">
+
+        </div>
+    </div>
     <div class="container-months">
 
         <div class="block-month">
@@ -38,6 +45,6 @@
 
     </div>
     <div class="info-block">
-        <span>{{ date | date:'yyyy MM dd' }}</span>
+        <span>{{ date | date:'yyyy.MM.dd' }}</span>
     </div>
 </div>

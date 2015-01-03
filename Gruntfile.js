@@ -28,7 +28,8 @@ module.exports = function (grunt) {
                     sourcemap: 'auto'
                 },
                 files: {
-                    'build/default.css': 'css/default.scss'
+                    'build/default.css': 'css/default.scss',
+                    'build/calendar.css': 'css/calendar.scss'
                 }
             },
             prod: {

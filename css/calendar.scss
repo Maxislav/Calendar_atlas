@@ -1,8 +1,7 @@
 $radius: 3px;
 @mixin background-gradient(){
   background: #ffffff; /* Old browsers */
-  background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
 }
 
 .calendar-label{
@@ -59,7 +58,14 @@ $radius: 3px;
 }
 .calendar-label .calendar-view{
   position: absolute;
-  background: #FFF7E6;
+  background: rgb(184,186,198); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(184,186,198,1) 1%, rgba(221,223,227,1) 76%, rgba(245,246,246,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(184,186,198,1)), color-stop(76%,rgba(221,223,227,1)), color-stop(100%,rgba(245,246,246,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(184,186,198,1) 1%,rgba(221,223,227,1) 76%,rgba(245,246,246,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(184,186,198,1) 1%,rgba(221,223,227,1) 76%,rgba(245,246,246,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(184,186,198,1) 1%,rgba(221,223,227,1) 76%,rgba(245,246,246,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(184,186,198,1) 1%,rgba(221,223,227,1) 76%,rgba(245,246,246,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8bac6', endColorstr='#f5f6f6',GradientType=0 ); /* IE6-9 */
   top: 30px;
   left: 100px;
   padding: 0;
@@ -69,12 +75,38 @@ $radius: 3px;
   white-space: nowrap;
   font-size: 12px;
   border-radius: 3px;
+  .label-close{
+   // position: absolute;
+   /* right: 5px;
+    top: 2px;*/
+    position: relative;
+    //text-align: center;
+    padding: 3px 0;
+  }
+
+  .button-close {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    background: url("../img/close.png") no-repeat center;
+    width: 16px;
+
+    height: 16px;
+    display: inline-block;
+    background-size: 100%;
+    &:active {
+      background-size: 90%;
+    }
+    cursor: pointer;
+  }
+
   .container-months{
     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     background: #ffffff;
+    padding: 5px 10px 2px 5px;
   }
   .block-month{
-    margin: 5px;
+    //margin: 5px;
     display: inline-block;
     min-width: 160px;
     min-height: 160px;
